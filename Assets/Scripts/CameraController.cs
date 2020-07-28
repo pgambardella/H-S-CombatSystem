@@ -5,13 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform player;
-
-    Vector3 m_cameraStartingPos;
-
-    private void Start()
-    {
-        m_cameraStartingPos = transform.position;
-    }
+    public Vector3 m_cameraStartingPos;
 
     void Update()
     {
@@ -20,5 +14,7 @@ public class CameraController : MonoBehaviour
         pos.y += m_cameraStartingPos.y;
         pos.z += m_cameraStartingPos.z;
         transform.position = pos;
+
+        transform.LookAt(player);
     }
 }

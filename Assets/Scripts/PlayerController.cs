@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         if (m_animatorComponent.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
-            m_animatorComponent.SetTrigger("StopAttack");
+            m_animatorComponent.SetBool("Attacking", false);
         }
        destination = newDest;
     }
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, enemy.transform.position) < m_attackRange)
         {
-            m_animatorComponent.SetTrigger("StartAttack");
+            m_animatorComponent.SetBool("Attacking", true);
             destination = transform.position;
         } else
         {
